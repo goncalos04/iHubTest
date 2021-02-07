@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Products Management</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" th:href="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.css}"/>
+    	<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    	<link th:rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.js}"></script>	
+	</head>
+	<body>
+	
+		<div class="container bg-dark text-white border">
+			<h1>Products Management</h1>
+		</div>
+		<div class="container border" th:object="${listProducts}">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product : ${listProducts}">
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.price}"></td>
+						<td>
+							<a class="btn btn-secondary" th:href="@{'/updateproduct?sku=' + ${product.id}}"><span>Edit</span></a>
+							<a class="btn btn-secondary" th:href="@{'/deleteproduct?sku=' + ${product.id}}"><span>Delete</span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="d-flex justify-content-end">			
+				<a class="btn btn-secondary" th:href="@{'/'}"><span>Home</span></a>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" th:href="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.css}"/>
+    	<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    	<link th:rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.js}"></script>	
+	</head>
+	<body>
+	
+		<div class="container bg-dark text-white border">
+			<h1>Products Management</h1>
+		</div>
+		
+		<div class="container border">
+		
+			<div th:if="${hasSuccessMessage}" class="alert alert-success">
+			  	<span th:text="${message}"></span>
+			</div>
+			<div th:if="${hasErrorMessage}" class="alert alert-danger">
+			  	<span th:text="${message}"></span>
+			</div>
+			<a type="button" class="btn btn-secundary" th:href="@{'/createproduct'}">Add new product</a>
+			<br>
+			<a type="button" class="btn btn-secundary" th:href="@{'/allproducts'}">See all products</a>
+			<br>
+		</div>
+		
+		
+	</body>
+</html>

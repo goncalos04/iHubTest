@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Products Management</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" th:href="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.css}"/>
+    	<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    	<link th:rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{assets/bootstrap4-toggle/bootstrap4-toggle.min.js}"></script>
+	</head>
+	<body>
+	
+		<div class="container bg-dark text-white border">
+			<h1>Product</h1>
+		</div>
+		
+		<form th:action="@{/saveproduct}" th:object="${product}" method="post">
+			<div class="input-group container">
+				<br>
+				<span class="input-group-text">Name:</span>
+				<input class="form-control form-control" type="text" th:field="*{name}"/>
+				<div class="input-group-append">
+					<span class="input-group-text">Price:</span>
+					<input class="form-control form-control" type="number" th:field="*{price}" step="0.01"/>
+					<div class="btn-group btn-group-justified">
+						<input class="btn btn-primary" type="submit" value="Submit"/>
+						<a class="btn btn-danger" th:href="@{'/'}"><span>Cancel</span></a>
+					</div>
+				</div>
+				<br>
+			</div>
+			
+			<input type="hidden" th:field="*{id}"/>
+			<input type="hidden" th:field="*{date}"/>
+		</form>
+		
+		
+	</body>
+</html>
